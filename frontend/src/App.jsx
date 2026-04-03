@@ -35,7 +35,7 @@ const App = () => {
   }
   return (
     <div>
-      <div className='grid grid-cols-3 gap-7 px-30 justify-items-center py-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 px-30 justify-items-center py-5'>
         {message.map((msg, index) => (
           <div key={msg.id} className='border border-amber-500 p-10'>
             <div>
