@@ -17,7 +17,7 @@ connectionString: process.env.DATABASE_URL,
 app.get('/', async  (req, res) => {
     const client = await pool.connect();
     try {
-        const result = await client.query("SELECT * FROM post");
+        const result = await client.query("SELECT * FROM posts");
         res.json(result.rows);
     } catch (error) {
         console.log(error);
@@ -29,7 +29,7 @@ app.get('/', async  (req, res) => {
 app.post('/', async (req, res) => {
     const {title, description} = req.body;
     try {
-        const result = await pool.query("INSERT INTO post (title, description) VALUEs ($1, $2) RETURNING *", [title, description]);
+        const result = await pool.query("INSERT INTO posts (title, description) VALUEs ($1, $2) RETURNING *", [title, description]);
         res.json(result.rows[0])
     } catch (error) {
         console.log(error);
