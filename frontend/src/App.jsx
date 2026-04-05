@@ -8,7 +8,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://travel-blog-bt8m.onrender.com/');
+      const response = await axios.get('http://localhost:5001/');
       setMessage(response.data)
     } catch (error) {
       console.log(error);
@@ -21,7 +21,7 @@ const App = () => {
   const sendData = async () => {
     if (!title || !description) return;
     try {
-      await axios.post('https://travel-blog-bt8m.onrender.com/', {
+      await axios.post('http://localhost:5001/', {
         title,
         description
       })
